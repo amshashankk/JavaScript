@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title id="title">Create Accout</title>
+</head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="sytles.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<body>
+  <div class="container">
+    <h1 id="header" style="color: rgb(10, 109, 202);"><b>Create Account</b></h1>
+    <form action="#" style="padding: 20px;" name="Form" onsubmit="return false;">
+      <br>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="name" class="font-weight-regular" style="color: rgb(3, 16, 128);"><b> Name </b> </label>
+          <input type="text" class="form-control" id="Name" onkeyup="ValidateName()" placeholder="Enter name" />
+          <span id="NameError" class="text-danger font-weight-regular"> </span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="font-weight-regular" style="color: rgb(3, 16, 128)"> <b> Email </b> </label>
+          <input type="text" class="form-control" id="Email" onkeyup="ValidateEmail()" placeholder="Enter email"/>
+          <span id="EmailError" class="text-danger font-weight-regular"> </span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="font-weight-regular" style="color: rgb(3, 16, 128)"> <b> Date of Birth </b> </label>
+          <input type="date" class="form-control" max="2021-12-29" id="Dob" onchange="ValidateDob()" />
+          <span id="DobError" class="text-danger font-weight-regular"> </span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="age" class="font-weight-regular" style="color: rgb(3, 16, 128)"><b> Age </b></label>
+          <input type="text" placeholder="" class="form-control" id="age" disabled />
+          <span id="fage"></span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="font-weight-regular" style="color: rgb(3, 16, 128)"> <b> Phone Number </b> </label>
+          <input type="text" class="form-control" id="Phone" maxlength="10" onkeyup="ValidatePhone()" placeholder="Enter phone number"/>
+          <span id="PhoneError" class="text-danger font-weight-regular"> </span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="country" class="font-weight-regular" style="color: rgb(3, 16, 128)"><b> Country </b></label>
+          <select id="country" name="state" class="form-control" onclick="ValidateCountry()">
+            <option value="" selected>Select Country</option>
+          </select>
+          <span id="fcountry" class="text-danger font-weight-regular"></span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label for="state" class="font-weight-regular" style="color: rgb(3, 16, 128)"><b> State </b></label>
+          <select id="state" name="country" class="form-control" onclick="ValidateState()">
+            <option value="" selected>Select State</option>
+          </select>
+          <span id="fstate" class="text-danger font-weight-regular"></span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="font-weight-regular" style="color: rgb(3, 16, 128)"> <b> Password </b> </label>
+          <input type="password" class="form-control" id="Password" onkeyup="ValidatePassword()" placeholder="Enter password"/>
+          <span id="PasswordError" class="text-danger font-weight-regular">
+          </span>
+        </div>
+
+        <div class="form-group col-md-6">
+          <label class="font-weight-regular" style="color: rgb(3, 16, 128)"> <b> Confirm Password. </b> </label>
+          <input type="password" name="conpass" class="form-control" id="ConfirmPassword"
+            onkeyup="ValidateConfirmPassword()" placeholder="Confirm password" />
+          <span id="ConfirmPasswordError" class="text-danger font-weight-regular"></span>
+        </div>
+      </div>
+      <input type="button" value="Submit" id="submit" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
+        style="font-weight: bold; background-color: black;" onclick="Submit();">
+
+      <button type="reset" class="btn btn-default" data-dismiss="modal"
+        style="background-color: crimson; color: aliceblue; font-weight: bold; margin: 20px;">Clear form</button>
+  </div>
+  </form>
+
+  <div class="container">
+    <h2 style="padding: 10px;font-weight:900; color: rgb(10, 109, 202)">Form Output</h2>
+    <div class="modal-body">
+      <p><b><span id="Output"></span></b></p>
+      <p><b><span id="Output1"></span></b></p>
+      <p><b><span id="Output2"></span></b></p>
+      <p><b><span id="Output3"></span></b></p>
+      <p><b><span id="Output4"></span></b></p>
+      <p><b><span id="Output5"></span></b></p>
+      <p><b><span id="Output6"></span></b></p>
+      <p><b><span id="Output7"></span></b></p>
+    </div>
+  </div>
+
+</body>
+<script src="index.js"></script>
+
+</html>
