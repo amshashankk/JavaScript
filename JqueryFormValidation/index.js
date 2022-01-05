@@ -40,6 +40,19 @@ $(document).ready(function () {
 
 
     // Jquery Validate Date of Birth
+    //setting up max date
+        var todayDate = new Date()
+        var month = todayDate.getMonth() + 1;
+        var year = todayDate.getFullYear();
+        var currentdate = todayDate.getDate();
+        if (month < 9) {
+            month = "0" + month;} 
+        if (currentdate < 10) {
+            currentdate = "0" + currentdate;}
+
+        var maxDate = year + "-" + month + "-" + currentdate;
+        document.getElementById("Dob").setAttribute("max", maxDate)
+        
     $.ValidateDateOfBirth = function () {
         var dob = $("#Dob").val();
         var dobError = $("#DobError");
