@@ -37,38 +37,53 @@ const ValidateEmail = () => {
     return true
 };
 
+
 // Check Date of birth
+
+//setting up max date
+var todayDate = new Date()
+var month = todayDate.getMonth() + 1;
+var year = todayDate.getFullYear();
+var currentdate = todayDate.getDate();
+if (month < 9) {
+    month = "0" + month;} 
+if (currentdate < 10) {
+    currentdate = "0" + currentdate;}
+
+var maxDate = year + "-" + month + "-" + currentdate;
+document.getElementById("Dob").setAttribute("max", maxDate)
+
 const ValidateDob = () => {
     var date = document.getElementById("Dob").value;
     const Style = document.getElementById('Dob');
     var dobError = document.getElementById("DobError");
 
-    var CurrentDate = new Date(date);
-    var CurrentMonth = Date.now() - CurrentDate.getTime();
+    var Input = new Date(date);
+    var CurrentMonth = Date.now() - Input.getTime();
     var Age = new Date(CurrentMonth);
     var CurrentYear = Age.getFullYear();
-    var presentDate = new Date();
-
     var age = Math.abs(CurrentYear - 1970);
+    var PresentDate = new Date();
+
     if (date == "") {
         dobError.innerHTML = "Please select date";
         Style.style.color = "red";
         Style.style.borderColor = "red";
         return false
-    } else if (age <= 17) {
-        dobError.innerHTML = "Age must be 18 or above";
-        Style.style.color = "red";
-        Style.style.borderColor = "red";
-        document.getElementById("age").value = "";
-        return false
-    } else if (CurrentDate > presentDate) {
+    } else if (CurrentYea > PresentDate) {
         dobError.innerHTML = "Birth year cannot be greater than current year";
         Style.style.color = "red";
         Style.style.borderColor = "red";
         document.getElementById("age").value = "";
         return false
-     
-    }else{
+
+    } else if (age < 18) {
+        dobError.innerHTML = "Age must be 18 or above";
+        Style.style.color = "red";
+        Style.style.borderColor = "red";
+        document.getElementById("age").value = "";
+        return false
+    } else {
         dobError.innerHTML = "";
         Style.style.color = "green";
         Style.style.borderColor = "green";
